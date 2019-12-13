@@ -32,6 +32,7 @@ public class player_handle : MonoBehaviour
                 sp_piernas.transform.position += new Vector3(-0.000011126f, 0, 0);
                 Debug.Log("Tecla A");
             }
+            GetComponent<Animator>().SetInteger("estado", 1);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -44,13 +45,16 @@ public class player_handle : MonoBehaviour
                 sp_piernas.GetComponent<SpriteRenderer>().flipX = false;
                 sp_cuerpo.transform.position += new Vector3(+0.000011126f, 0, 0);
                 sp_piernas.transform.position += new Vector3(+0.000011126f, 0, 0);
+
                 Debug.Log("Tecla D");
             }
+            GetComponent<Animator>().SetInteger("estado", 1);
         }
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
         {
             Debug.Log("Detener tecla");
             velocidad.x = 0.0f;
+            GetComponent<Animator>().SetInteger("estado", 0);
         }
         if (Input.GetKeyDown(KeyCode.W))
         {

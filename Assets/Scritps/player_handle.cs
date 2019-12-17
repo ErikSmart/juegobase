@@ -7,6 +7,7 @@ public class player_handle : MonoBehaviour
     Vector2 velocidad;
     bool is_suelo = false;
     public float vel_desp;
+    public float vel_salto;
     public GameObject sp_cuerpo;
     public GameObject sp_piernas;
     // Start is called before the first frame update
@@ -63,6 +64,12 @@ public class player_handle : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             Debug.Log("Tecla D");
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            GetComponent<Animator>().SetInteger("estado", 2);
+            velocidad.y += vel_salto;
+            is_suelo = false;
         }
 
     }
